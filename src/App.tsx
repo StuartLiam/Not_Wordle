@@ -1,10 +1,26 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const [input, setInput] = useState("");
+
+  const handleKeyDown = (event: KeyboardEvent): void => {
+    console.log(event.code);
+    if(event.code.startsWith("Key")){
+      setInput(input.concat(event.code.replace("Key", "")));
+    } else if (event.code === "Backspace") {
+      setInput(input.substring(0, input.length-1))
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  });
 
   return (
     <>
@@ -28,8 +44,11 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <p>{input}</p>
     </>
   )
 }
+
+ 
 
 export default App
