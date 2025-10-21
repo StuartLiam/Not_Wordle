@@ -8,9 +8,11 @@ function App() {
   const [input, setInput] = useState<string[]>(["t","e","s","t"]);
 
   const addLetter = (letter:string) => {
-    const newInput = input.slice();
-    newInput.push(letter);
-    setInput(newInput);
+    if(input.length < 5) {
+      const newInput = input.slice();
+      newInput.push(letter);
+      setInput(newInput);
+    }
   }
 
   const removeLetter = (() => {
