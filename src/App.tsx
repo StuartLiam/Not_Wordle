@@ -5,14 +5,18 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState<string[]>(["t","e","s","t"]);
 
   const addLetter = (letter:string) => {
-    setInput(input.concat(letter));
+    const newInput = input.slice();
+    newInput.push(letter);
+    setInput(newInput);
   }
 
   const removeLetter = (() => {
-    setInput(input.substring(0, input.length-1));
+    const newInput = input.slice();
+    newInput.pop();
+    setInput(newInput);
   })
 
   const handleKeyDown = (event: KeyboardEvent): void => {
