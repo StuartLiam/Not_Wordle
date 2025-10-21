@@ -9,16 +9,12 @@ function App() {
 
   const addLetter = (letter:string) => {
     if(input.length < 5) {
-      const newInput = input.slice();
-      newInput.push(letter);
-      setInput(newInput);
+      setInput(input.concat(letter));
     }
   }
 
   const removeLetter = (() => {
-    const newInput = input.slice();
-    newInput.pop();
-    setInput(newInput);
+    setInput(input.slice(0,-1));
   })
 
   const handleKeyDown = (event: KeyboardEvent): void => {
