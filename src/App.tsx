@@ -7,12 +7,20 @@ function App() {
   const [count, setCount] = useState(0);
   const [input, setInput] = useState("");
 
+  const addLetter = (letter:string) => {
+    setInput(input.concat(letter));
+  }
+
+  const removeLetter = (() => {
+    setInput(input.substring(0, input.length-1));
+  })
+
   const handleKeyDown = (event: KeyboardEvent): void => {
     console.log(event.code);
     if(event.code.startsWith("Key")){
-      setInput(input.concat(event.code.replace("Key", "")));
+      addLetter(event.code.replace("Key", ""));
     } else if (event.code === "Backspace") {
-      setInput(input.substring(0, input.length-1))
+      removeLetter();
     }
   }
 
