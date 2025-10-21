@@ -3,14 +3,14 @@ import { useState } from 'react'
 //import viteLogo from '/vite.svg'
 import './App.css'
 import Key from './components/Key'
-import keyBoard from './components/keyBoard'
+import KeyBoard from './components/keyBoard'
 //<button onClick={() => setCount((count) => count + 1)}>
 function App() {
   //const [count, setCount] = useState(0)
 
   return (
     <>
-      <keyBoard></>
+      <KeyBoard></KeyBoard>
     </>
   )
 }
