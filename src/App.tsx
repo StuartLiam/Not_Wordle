@@ -31,10 +31,10 @@ function App() {
   });
 
   return (
-    <>
+    <div>
       <p>{input}</p>
       <KeyBoard></KeyBoard>
-    </>
+    </div>
   )
 }
 
