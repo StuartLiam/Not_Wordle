@@ -8,11 +8,11 @@ function RowAttmpt() {
     return(
         <>
             <div>
-                <Tile  state={0} mark={'A'}/>
-                <Tile  state={0} mark={'A'}/>
-                <Tile  state={0} mark={'A'}/>
-                <Tile  state={0} mark={'A'}/>
-                <Tile  state={0} mark={'A'}/>
+                <Tile  state={0} mark={'A'} index={0}/>
+                <Tile  state={0} mark={'A'} index={1}/>
+                <Tile  state={0} mark={'A'} index={2}/>
+                <Tile  state={0} mark={'A'} index={3}/>
+                <Tile  state={0} mark={'A'} index={4}/>
             </div>
            
         </>

@@ -8,6 +8,7 @@ type Props = {
     
     state: state;
     mark: keyMark;
+    index: index;
 }
 
 const Component: React.FC<Props> = (props) => (
