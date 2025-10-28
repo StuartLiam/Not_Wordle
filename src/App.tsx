@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import KeyBoard from './components/keyBoard'
+import RowAttmpt from './components/rowAttmpt'
 
 function App() {
   const [input, setInput] = useState<string[]>(["t","e","s","t"]);
@@ -31,10 +32,12 @@ function App() {
   });
 
   return (
-    <div>
+    <>
       <p>{input}</p>
+      <RowAttmpt/>
       <KeyBoard></KeyBoard>
-    </div>
+      
+    </>
   )
 }
 
