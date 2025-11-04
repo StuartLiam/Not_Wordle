@@ -34,8 +34,8 @@ function App() {
   return (
     <>
       <p>{input}</p>
-      <RowAttmpt/>
-      <KeyBoard></KeyBoard>
+      <RowAttmpt currInput= {input}/>
+      {/*<KeyBoard></KeyBoard>*/}
       
     </>
   )

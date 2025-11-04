@@ -7,7 +7,7 @@ import { type state } from '../types/types';
 type Props = {
     
     state: state;
-    mark: keyMark;
+    mark: string;
     index: number;
 }
 
