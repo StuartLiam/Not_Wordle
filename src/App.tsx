@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import KeyBoard from './components/keyBoard'
+import WordGenerator from './components/WordGenerator';
 
 function App() {
-  const [input, setInput] = useState<string[]>(["t","e","s","t"]);
+  const [input, setInput] = useState<string[]>(WordGenerator());
 
   const addLetter = (letter:string) => {
     if(input.length < 5) {
