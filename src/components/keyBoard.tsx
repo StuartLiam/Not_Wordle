@@ -7,7 +7,7 @@ import Key from "./Key";
 function KeyBoard() {
     return(
         <>
-            <div>
+            <div className="keyrow">
                 <Key onClick={function (): void {} } state={0} mark={'Q'}/>
                 <Key onClick={function (): void {} } state={0} mark={'W'}/>
                 <Key onClick={function (): void {} } state={0} mark={'E'}/>
@@ -19,7 +19,7 @@ function KeyBoard() {
                 <Key onClick={function (): void {} } state={0} mark={'O'}/>
                 <Key onClick={function (): void {} } state={0} mark={'P'}/>
             </div>
-            <div>
+            <div className="keyrow">
                 <Key onClick={function (): void {} } state={0} mark={'A'}/>
                 <Key onClick={function (): void {} } state={0} mark={'S'}/>
                 <Key onClick={function (): void {} } state={0} mark={'D'}/>
@@ -30,7 +30,7 @@ function KeyBoard() {
                 <Key onClick={function (): void {} } state={0} mark={'K'}/>
                 <Key onClick={function (): void {} } state={0} mark={'L'}/>
             </div>
-            <div>
+            <div className="keyrow">
                 <Key onClick={function (): void {} } state={0} mark={'ENTER'}/>
                 <Key onClick={function (): void {} } state={0} mark={'Z'}/>
                 <Key onClick={function (): void {} } state={0} mark={'X'}/>
