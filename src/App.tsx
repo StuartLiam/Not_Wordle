@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import KeyBoard from './components/keyBoard'
 import WordGenerator from './components/WordGenerator';
+import Modal from './components/modal';
 
 function App() {
   const [input, setInput] = useState<string[]>(WordGenerator());
+  const [modalOpen, setModalOpen] = useState(false);
 
   const addLetter = (letter:string) => {
     if(input.length < 5) {
@@ -33,6 +35,21 @@ function App() {
 
   return (
     <>
+      <button className="openModalBtn" onClick={() => setModalOpen(true)}>
+        Debug Open
+      </button>
+      <Modal 
+                open={modalOpen}
+                titleContent={<h1> How To Play </h1>}
+                closeFn={() => setModalOpen(false)}
+                content={
+                   <>
+                     <h2>This is a modal</h2>
+                     <p>You can close it by pressing Escape key, pressing close, or clicking outside the modal.</p>
+                  </>
+
+               }
+           />
       <p>{input}</p>
       <KeyBoard></KeyBoard>
     </>
