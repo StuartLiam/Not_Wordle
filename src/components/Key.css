@@ -1,5 +1,4 @@
 .key {
-    background-color:lightgray;
     border: 1px solid lightgray;
     border-radius:6px;
     cursor:pointer;
@@ -8,10 +7,24 @@
     font-weight: bold;
     padding:12px 12px;
     text-align: center;
+
+    &.\30 {
+        background-color: lightgrey;
+    } 
+
+    
+
+    &.\31 {
+        background-color: yellow;
+    }
+
+    &.\32 {
+        background-color: green;
+    } 
+
     
 }
 
 .key:focus {
     outline: none;
-    background: #ddd;
 }
