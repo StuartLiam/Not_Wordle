@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import KeyBoard from './components/keyBoard'
 import RowAttmpt from './components/rowAttmpt'
+import Grid from './components/Grid'
 
 function App() {
   const [input, setInput] = useState<string[]>(["t","e","s","t"]);
@@ -34,7 +35,8 @@ function App() {
   return (
     <>
       <p>{input}</p>
-      <RowAttmpt currInput= {input}/>
+      <Grid currInput = {input}/>
+      {/*<RowAttmpt currInput= {input}/>*/}
       {/*<KeyBoard></KeyBoard>*/}
       
     </>
