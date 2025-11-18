@@ -12,8 +12,6 @@
         background-color: lightgrey;
     } 
 
-    
-
     &.\31 {
         background-color: yellow;
     }
@@ -22,7 +20,10 @@
         background-color: green;
     } 
 
-    
+
+    &.\33 {
+        background-color: darkgray;
+    } 
 }
 
 .key:focus {
