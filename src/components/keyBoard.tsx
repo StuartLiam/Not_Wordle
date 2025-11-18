@@ -6,7 +6,7 @@ import Key from "./Key";
 
 function KeyBoard() {
     return(
-        <>
+        <div className="keyBoard">
             <div className="keyrow">
                 <Key onClick={function (): void {} } state={0} mark={'Q'}/>
                 <Key onClick={function (): void {} } state={0} mark={'W'}/>
@@ -41,7 +41,7 @@ function KeyBoard() {
                 <Key onClick={function (): void {} } state={0} mark={'M'}/>
                 <Key onClick={function (): void {} } state={0} mark={'<='}/>
             </div>
-        </>
+        </div>
     );  
 
 };
