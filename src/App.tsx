@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import KeyBoard from './components/keyBoard'
-import RowAttmpt from './components/rowAttmpt'
+
 import Grid from './components/Grid'
 
 function App() {
@@ -36,8 +36,7 @@ function App() {
     <>
       <p>{input}</p>
       <Grid currInput = {input}/>
-      {/*<RowAttmpt currInput= {input}/>*/}
-      {/*<KeyBoard></KeyBoard>*/}
+      
       
     </>
   )

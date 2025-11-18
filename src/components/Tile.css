@@ -1,4 +1,4 @@
-.key {
+.tile {
     background: #000000;
     border: 1px solid #999;
     float: left;
@@ -13,7 +13,7 @@
     width: 34px;
 }
 
-.key:focus {
+.tile:focus {
     outline: none;
     background: #ddd;
 }
