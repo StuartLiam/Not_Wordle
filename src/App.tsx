@@ -36,7 +36,7 @@ function App() {
     <>
       <p>{input}</p>
       <Grid currInput = {input}/>
-      
+      <KeyBoard></KeyBoard>
       
     </>
   )
