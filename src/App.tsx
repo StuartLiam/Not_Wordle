@@ -4,6 +4,8 @@ import KeyBoard from './components/keyBoard'
 import WordGenerator from './components/WordGenerator';
 import Modal from './components/modal';
 
+import Grid from './components/Grid'
+
 function App() {
   const [input, setInput] = useState<string[]>(WordGenerator());
   const [modalOpen, setModalOpen] = useState(false);
@@ -80,7 +82,9 @@ function App() {
                }
            />
       <p>{input}</p>
+      <Grid currInput = {input}/>
       <KeyBoard></KeyBoard>
+      
     </>
   )
 }
