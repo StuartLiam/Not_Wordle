@@ -10,12 +10,17 @@ type Props = {
     mark: keyMark;
 }
 
-const Component: React.FC<Props> = (props) => (
-    <button
-        className="key"
-        onClick={props.onClick}
-    >
-        {props.mark}
-    </button>
-);
+const Component: React.FC<Props> = (props) => {
+    const [currState, setCurrState] = React.useState(props.state)
+    const nextState: state = ((currState + 1) % 4) as state
+
+    return (
+        <button
+            className={`key ` + currState}
+            onClick={() => setCurrState(nextState)}
+        >
+            {props.mark}
+        </button>
+    )
+};
 export default Component;
