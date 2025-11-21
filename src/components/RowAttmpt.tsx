@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from 'react'
-import "./KeyBoard.css"
 
 
 import Tile from "./Tile";
