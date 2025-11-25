@@ -23,8 +23,10 @@ function App() {
   const handleKeyDown = (event: KeyboardEvent): void => {
     console.log(event.code);
     if(event.code.startsWith("Key")){
+      console.log("key pressed");
       addLetter(event.code.replace("Key", ""));
     } else if (event.code === "Backspace") {
+      console.log("backspace pressed");
       removeLetter();
     }
   }

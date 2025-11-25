@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 
 
 
-import RowAttmpt from "./rowAttmpt";
+import Row from "./Row";
 
 
 type Props = {
@@ -15,12 +15,12 @@ type Props = {
 const Grid: React.FC<Props> = (props) => (
      <div>
                 <ul>
-                    <RowAttmpt currInput = {props.currInput}/>
-                    <RowAttmpt currInput = {props.currInput}/>
-                    <RowAttmpt currInput = {props.currInput}/>
-                    <RowAttmpt currInput = {props.currInput}/>
-                    <RowAttmpt currInput = {props.currInput}/>
-                    <RowAttmpt currInput = {props.currInput}/>
+                    <Row currInput = {props.currInput}/>
+                    <Row currInput = {props.currInput}/>
+                    <Row currInput = {props.currInput}/>
+                    <Row currInput = {props.currInput}/>
+                    <Row currInput = {props.currInput}/>
+                    <Row currInput = {props.currInput}/>
                 </ul>
     </div>
 );
