@@ -1,0 +1,9 @@
+.rowAtt{
+    
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 5px;
+    padding: 5px;
+
+}
