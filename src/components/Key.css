@@ -8,24 +8,26 @@
     padding:12px 12px;
     text-align: center;
 
-    &.\30 {
-        background-color: lightgrey;
-    } 
+&.\30 {
+    background-color: lightgrey;
+} 
 
-    &.\31 {
-        background-color: yellow;
-    }
+&.\31 {
+    background-color: yellow;
+}
 
-    &.\32 {
-        background-color: green;
-    } 
+&.\32 {
+    background-color: green;
+} 
 
-    &.\33 {
-        background-color: darkgray;
-        color: white;
-    } 
+&.\33 {
+    background-color: darkgray;
+    color: white;
+} 
 }
 
 .key:focus {
     outline: none;
 }
+
+

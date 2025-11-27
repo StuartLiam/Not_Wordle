@@ -23,19 +23,23 @@
     text-align: center;
     align-items: center;
     justify-content: space-between;
-    padding: 8px;
+    padding: 4px;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
     background-color: lightgray;
+    font-size: 20px;
 }
 
 .close_btn {
     display: flex;
-    justify-content: flex-end;
-}
-
-.close_btn button {
-    font-size: 0.3rem;
+    border: 1px solid lightgray;
+    border-radius:6px;
+    cursor:pointer;
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+    padding:8px 12px;
+    text-align: center;
 }
 
 
@@ -48,4 +52,6 @@
     align-items: center;
     font-size: 1rem;
     text-align: left;
+    font-size: 16px;
+    font-weight: bold;
 }

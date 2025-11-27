@@ -5,6 +5,7 @@ import WordGenerator from './components/WordGenerator';
 import Modal from './components/modal';
 
 import Grid from './components/Grid'
+import "./components/Key.css"
 
 function App() {
   const [input, setInput] = useState<string[]>(WordGenerator());
@@ -53,27 +54,27 @@ function App() {
                      </ul>
                      <h3>Examples</h3>
                      <div className="exampleRow">
-                        <div className="exampleTile correct">W</div>
-                        <div className="exampleTile">E</div>
-                        <div className="exampleTile">A</div>
-                        <div className="exampleTile">R</div>
-                        <div className="exampleTile">Y</div>
+                        <div className="key 2">W</div>
+                        <div className="key 0">E</div>
+                        <div className="key 0">A</div>
+                        <div className="key 0">R</div>
+                        <div className="key 0">Y</div>
                      </div>
                      <p> The letter W is in the word and in the correct spot.</p>
                      <div className="exampleRow">
-                        <div className="exampleTile">P</div>
-                        <div className="exampleTile incorrect">I</div>
-                        <div className="exampleTile">L</div>
-                        <div className="exampleTile">L</div>
-                        <div className="exampleTile">S</div>
+                        <div className="key 0">P</div>
+                        <div className="key 1">I</div>
+                        <div className="key 0">L</div>
+                        <div className="key 0">L</div>
+                        <div className="key 0">S</div>
                      </div>
                      <p> The letter I is in the word but in the wrong spot.</p>
                      <div className="exampleRow">
-                        <div className="exampleTile">V</div>
-                        <div className="exampleTile">A</div>
-                        <div className="exampleTile">G</div>
-                        <div className="exampleTile incorrect">U</div>
-                        <div className="exampleTile">E</div>
+                        <div className="key 0">V</div>
+                        <div className="key 0">A</div>
+                        <div className="key 0">G</div>
+                        <div className="key 3">U</div>
+                        <div className="key 0">E</div>
                      </div>
                      <p> The letter U is not in the word in any spot.</p>
                      <h2>A new word will be generated at midnight</h2>

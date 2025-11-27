@@ -16,7 +16,7 @@ const Component: React.FC<Props> = (props) => {
 
     return (
         <button
-            className={`key ` + currState}
+            className={`test key ` + currState}
             onClick={() => setCurrState(nextState)}
         >
             {props.mark}
