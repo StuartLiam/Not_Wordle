@@ -7,7 +7,8 @@ import Modal from './components/modal';
 import Grid from './components/Grid'
 
 function App() {
-  const [input, setInput] = useState<string[]>(WordGenerator());
+  const answer = WordGenerator();
+  const [input, setInput] = useState<string[]>([]);
   const [modalOpen, setModalOpen] = useState(false);
 
   const addLetter = (letter:string) => {
@@ -26,8 +27,55 @@ function App() {
       addLetter(event.code.replace("Key", ""));
     } else if (event.code === "Backspace") {
       removeLetter();
+    } else if (event.code === "Enter") {
+      checkWord()
     }
   }
+
+  const incrementLetterCount = ((letterCount: Map<string, number>, letter: string) => {
+    if (letterCount.has(letter)) {
+        letterCount.set(letter, letterCount.get(letter)! + 1);
+      } else {
+        letterCount.set(letter, 1);
+      }
+  })
+
+  const checkWord = (() => {
+    if (input.length != 5) {
+      console.log("exit");
+      return;
+    }
+
+    const answerLetterCounts = new Map();
+    answer.forEach(letter => {
+      incrementLetterCount(answerLetterCounts, letter);
+    })
+  
+    const guessLetterCounts = new Map();
+    const state = [0, 0, 0, 0, 0];
+
+    for (let ii = 0; ii < 5; ii++) {
+      const letter = input[ii].toLowerCase()
+      if (answer[ii] == letter) {
+        state[ii] = 2;
+        incrementLetterCount(guessLetterCounts, letter);
+      }
+    }
+
+    for (let ii = 0; ii < 5; ii++) {
+      const letter = input[ii].toLowerCase();
+      if (state[ii] == 2 || !answerLetterCounts.has(letter)) {continue}
+          
+      incrementLetterCount(guessLetterCounts, letter);
+
+      if (guessLetterCounts.has(letter) && guessLetterCounts.get(letter) <= answerLetterCounts.get(letter)) {
+        state[ii] = 1;
+      } 
+    }
+    console.log(state)
+    console.log(answerLetterCounts)
+    console.log(guessLetterCounts)
+  })
 
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
@@ -81,7 +129,7 @@ function App() {
 
                }
            />
-      <p>{input}</p>
+      <p>{answer}</p>
       <Grid currInput = {input}/>
       <KeyBoard></KeyBoard>
       
