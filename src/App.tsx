@@ -3,14 +3,20 @@ import './App.css'
 import KeyBoard from './components/keyBoard'
 import WordGenerator from './components/WordGenerator';
 import Modal from './components/modal';
-
 import Grid from './components/Grid'
+
+import type { state } from './types/types';
 
 function App() {
   const answer = WordGenerator();
   const [input, setInput] = useState<string[]>([]);
-  const [modalOpen, setModalOpen] = useState(false);
 
+  const [modalOpen, setModalOpen] = useState(false);
+  const [keyboardStates, setKeyboardStates] = useState(new Map<string, state>([ 
+    ["A", 0], ["B", 0], ["C", 0], ["D", 0], ["E", 0], ["F", 0], ["G", 0], ["H", 0], ["I", 0], 
+    ["J", 0], ["K", 0], ["L", 0], ["M", 0], ["N", 0], ["O", 0], ["P", 0], ["Q", 0], ["R", 0], 
+    ["S", 0], ["T", 0], ["U", 0], ["V", 0], ["W", 0], ["X", 0], ["Y", 0], ["Z", 0]
+  ]));
   const addLetter = (letter:string) => {
     if(input.length < 5) {
       setInput(input.concat(letter));
@@ -21,6 +27,23 @@ function App() {
     setInput(input.slice(0,-1));
   })
 
+  const handleEnter = (() => {
+    if (input.length == 5) {
+
+      const state: number[] = checkWord();
+      if (state.every(value => value == 2)) {
+        console.log("You Win!");
+      }
+      
+      const newMap = new Map(keyboardStates);
+      for (let ii = 0; ii < 5; ii++) {
+        newMap.set(input[ii], Math.max(newMap.get(input[ii])!, state[ii]) as state);
+      }
+      setKeyboardStates(newMap);
+      setInput([])
+    }
+  })
+
   const handleKeyDown = (event: KeyboardEvent): void => {
     console.log(event.code);
     if(event.code.startsWith("Key")){     
@@ -28,7 +51,7 @@ function App() {
     } else if (event.code === "Backspace") {
       removeLetter();
     } else if (event.code === "Enter") {
-      checkWord()
+      handleEnter()
     }
   }
 
@@ -41,40 +64,34 @@ function App() {
   })
 
   const checkWord = (() => {
-    if (input.length != 5) {
-      console.log("exit");
-      return;
-    }
-
     const answerLetterCounts = new Map();
     answer.forEach(letter => {
       incrementLetterCount(answerLetterCounts, letter);
     })
   
     const guessLetterCounts = new Map();
-    const state = [0, 0, 0, 0, 0];
+    const state = [1, 1, 1, 1, 1];
 
     for (let ii = 0; ii < 5; ii++) {
       const letter = input[ii].toLowerCase()
       if (answer[ii] == letter) {
-        state[ii] = 2;
+        state[ii] = 3;
         incrementLetterCount(guessLetterCounts, letter);
       }
     }
 
     for (let ii = 0; ii < 5; ii++) {
       const letter = input[ii].toLowerCase();
-      if (state[ii] == 2 || !answerLetterCounts.has(letter)) {continue}
+      if (state[ii] == 3 || !answerLetterCounts.has(letter)) {continue}
           
       incrementLetterCount(guessLetterCounts, letter);
 
       if (guessLetterCounts.has(letter) && guessLetterCounts.get(letter) <= answerLetterCounts.get(letter)) {
-        state[ii] = 1;
+        state[ii] = 2;
       } 
     }
-    console.log(state)
-    console.log(answerLetterCounts)
-    console.log(guessLetterCounts)
+    
+    return state
   })
 
   useEffect(() => {
@@ -131,7 +148,7 @@ function App() {
            />
       <p>{answer}</p>
       <Grid currInput = {input}/>
-      <KeyBoard></KeyBoard>
+      <KeyBoard states = {keyboardStates}></KeyBoard>
       
     </>
   )
