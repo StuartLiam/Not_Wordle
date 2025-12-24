@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import KeyBoard from './components/keyBoard'
 import WordGenerator from './components/WordGenerator';
+import GuessWords from './components/GuessWords';
 import Modal from './components/modal';
-import Grid from './components/Grid'
+import Grid from './components/Grid';
 
 import type { state } from './types/types';
 
@@ -29,8 +30,7 @@ function App() {
   })
 
   const handleEnter = (() => {
-    if (input.length == 5) {
-
+    if (input.length == 5 && GuessWords.includes(input.join("").toLowerCase())) {
       const state: number[] = checkWord();
       if (state.every(value => value == 2)) {
         console.log("You Win!");
